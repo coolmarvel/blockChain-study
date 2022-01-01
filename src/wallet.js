@@ -27,7 +27,8 @@ const privateKeyLocation = "wallet/" + (process.env.PRIVATE_KEY || "default")//�
 const privateFile = `${privateKeyLocation}/private_key`
 
 function initWallet() {
-  //console.log(fs.existsSync('wallet/'))//true false 반환함
+  //console.log(fs.existsSync('wallet/'))
+  //true false 반환함
   if (!fs.existsSync('wallet/')) {
     //폴더를 생성하는 코드를 작성해주면 된다.
     fs.mkdirSync("wallet/")
