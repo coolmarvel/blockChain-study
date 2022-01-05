@@ -13,9 +13,9 @@ const MessageAction = {
   RESPONSE_BLOCK: 2,
 }
 
-//reducer 만들겁니다. 
+// reducer 만들겁니다. 
 function initMessageHandler(ws) {
-  ws.on("message", data => {//데이터를 받았을 때의 코드
+  ws.on("message", data => {  //데이터를 받았을 때의 코드
     const message = JSON.parse(data)
     switch (message.type) {
       case MessageAction.QUERY_LAST:
