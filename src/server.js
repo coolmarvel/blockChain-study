@@ -17,7 +17,7 @@ app.get("/version", (req, res) => {
 })
 
 // Blocks 배열에  { } 
-// curl http://localhost:3000/mineBlock -X POST -H "Content-Type:application/json" -d "{'data':[\"Hello world!\"]}" 
+// curl http://localhost:3001/mineBlock -X POST -H "Content-Type:application/json" -d "{'data':[\"Hello world!\"]}" 
 app.post("/mineBlock", (req, res) => {
   const data = req.body.data
   const result = bc.mineBlock(data) // {} or false 
@@ -30,7 +30,7 @@ app.post("/mineBlock", (req, res) => {
 })
 
 // peers -> 현재 가지고있는 소켓리스트 getSockets GET
-// curl http://localhost:3000/peers
+// curl http://localhost:3001/peers
 app.get('/peers', (req, res) => {
   res.send(ws.getSockets().map(socket => {
     return `${socket._socket.remoteAddress}:${socket._socket.remotePort}`;
@@ -38,14 +38,14 @@ app.get('/peers', (req, res) => {
 })
 // addPeers -> 내가보낼 주소값에 소켓을 생성하는 작업 connectToPeers POST
 // [] 
-// curl -X POST -H "Content-Type:application/json" -d "{\"peers\":[\"ws://localhost:6006\"]}" http://localhost:3000/addPeers
+// curl -X POST -H "Content-Type:application/json" -d "{\"peers\":[\"ws://localhost:6006\"]}" http://localhost:3001/addPeers
 app.post('/addPeers', (req, res) => {
   const peers = req.body.peers
   ws.connectionToPeers(peers)
   res.send('success')
 })
 
-// curl http://localhost:3000/stop
+// curl http://localhost:3001/stop
 app.get("/stop", (req, res) => {
   res.send("Server Stop")
   process.exit(0)
