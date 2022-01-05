@@ -117,7 +117,7 @@ function wsInit() {
   const server = new WebSocket.Server({ port: wsPORT })//내가 서버니까 내 주소는 알기에 포트번호만 작성하는 것
   server.on("connection", (ws) => {//서버가 클라이언트랑 완ㅇ전히 연결되었을 때 실행되는 코드임. 서버 하나만 틀어서는 실행 안됨
     //두개가 연결되어야 싫애이 된다.
-    console.log('ws는 과연 무엇일까요?')
+    console.log('우주멋쟁이 성현')
     console.log(ws)
     init(ws) // 소켓키값
 
